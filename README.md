@@ -18,7 +18,7 @@ Once both of these are installed, you can run `dev/build?flush=1`
 
 ### Composer
 
-Installing from composer is easy, 
+Installing from composer is easy,
 
 Create or edit a `composer.json` file in the root of your SilverStripe project, and make sure the following is present.
 
@@ -83,18 +83,18 @@ Can be used as a check to see if 'target="_blank"' should be added to links.
 
 ### Usage in template
 
-	<% if $MenuItemChildren.Count() %>
-		<div class="cre-nav-dropdown">
-		    <div class="cre-dropdown">
-			<ul>
-			    <% loop $MenuItemChildren %>
-			    <li class="cre-el"><a href="$Link">$MenuTitle</a></li>
-			    <% end_loop %>
-			</ul>
-		    </div>
-		</div>
-		<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sort-down" class="svg-inline--fa fa-sort-down fa-w-10" role="img" viewBox="0 0 320 512"><path fill="currentColor" d="M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41z" /></svg>
-	<% end_if %>
+	<% loop $MenuSet('YourMenuName').MenuItems %>
+		<a href="$Link" class="$LinkingMode">$MenuTitle</a>
+        <% if $MenuItemChildren.Count() %>
+            <div>
+                <ul>
+                    <% loop $MenuItemChildren %>
+                        <li><a href="$Link">$MenuTitle</a></li>
+                    <% end_loop %>
+                </ul>
+            </div>
+        <% end_if %>
+	<% end_loop %>
 
 
 ### Code guidelines
@@ -103,6 +103,3 @@ This project follows the standards defined in:
 
 * [PSR-1](http://www.php-fig.org/psr/psr-1/)
 * [PSR-2](http://www.php-fig.org/psr/psr-2/)
-
-
-
