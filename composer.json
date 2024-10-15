@@ -1,6 +1,6 @@
 {
-	"name": "heyday/silverstripe-menumanager",
-	"type": "silverstripe-module",
+	"name": "hpadev/silverstripe-menumanager",
+	"type": "library",
 	"description": "Clone of heyday/silverstripe-menumanager. Allows complex menu management to be handled through the CMS when a simple tree structure is not enough.",
 	"license": "MIT",
 	"authors": [
